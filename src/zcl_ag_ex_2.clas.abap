@@ -23,7 +23,7 @@ CLASS ZCL_AG_EX_2 IMPLEMENTATION.
 
     CALL FUNCTION 'FILE_GET_NAME'
       EXPORTING
-        logical_filename = 'ZEX_LOG_FILE_NAME'
+        logical_filename = 'ZEX_LOG_FILE_NAME_NEW'
       IMPORTING
         file_name        = lv_file_name
       EXCEPTIONS

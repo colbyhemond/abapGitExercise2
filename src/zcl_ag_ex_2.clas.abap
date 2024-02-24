@@ -21,13 +21,11 @@ CLASS ZCL_AG_EX_2 IMPLEMENTATION.
 
   METHOD get_file_name.
 
-    DATA: lv_file_name TYPE string.
-
     CALL FUNCTION 'FILE_GET_NAME'
       EXPORTING
         logical_filename = iv_logical_file_name
       IMPORTING
-        file_name        = lv_file_name
+        file_name        = rv_file_name
       EXCEPTIONS
         file_not_found   = 1
         OTHERS           = 2.
@@ -36,8 +34,6 @@ CLASS ZCL_AG_EX_2 IMPLEMENTATION.
       MESSAGE 'Invalid logical file name!' TYPE 'I'.
       RETURN.
     ENDIF.
-
-    rv_file_name = lv_file_name.
 
   ENDMETHOD.
 ENDCLASS.

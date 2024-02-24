@@ -5,8 +5,10 @@ CLASS zcl_ag_ex_2 DEFINITION
 
   PUBLIC SECTION.
     CLASS-METHODS get_file_name
+      IMPORTING
+        iv_logical_file_name TYPE fileintern
       RETURNING
-        VALUE(rv_file_name) TYPE string .
+        VALUE(rv_file_name)  TYPE string .
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -23,7 +25,7 @@ CLASS ZCL_AG_EX_2 IMPLEMENTATION.
 
     CALL FUNCTION 'FILE_GET_NAME'
       EXPORTING
-        logical_filename = 'ZEX_LOG_FILE_NAME'
+        logical_filename = iv_logical_file_name
       IMPORTING
         file_name        = lv_file_name
       EXCEPTIONS
